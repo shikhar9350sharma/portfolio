@@ -55,7 +55,7 @@ const Contact = () => {
         {/* for black theme  */}
         {themeChanger === 'dark' 
         ?
-        <div className=' gap-4 flex flex-col text-left px-4 py-6 w-72 h-96 md:w-96 md:h-96 rounded-xl bg-white/10 hover:shadow-lg hover:shadow-pink-500 transition-all duration-300 '>
+        <div className=' gap-4 flex flex-col text-left px-6 py-8 w-72  md:w-96 rounded-xl bg-white/10 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300 '>
           <div>
             <label className="block text-sm font-medium mb-2" >Name</label>
             <input 
