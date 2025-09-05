@@ -65,21 +65,25 @@ const Contact = () => {
 
           <div className=' gap-4 flex flex-col text-left px-6 py-8 w-72  md:w-96 rounded-xl bg-white/10 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300 '>
             <div>
-              <label className="block text-sm font-medium mb-2" >Name</label>
+              <label htmlFor='name' className="block text-sm font-medium mb-2" >Name</label>
               <input 
                 type="text" 
+                id='name'
                 name="username" 
                 value={formData.username} 
                 onChange={handleChange}
                 placeholder='John'
+                autoComplete='name'
                 className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" >Email</label>
+              <label htmlFor='email' className="block text-sm font-medium mb-2" >Email</label>
               <input 
                 type="email" 
                 name="email" 
+                id='email'
+                autoComplete='email'
                 value={formData.email} 
                 onChange={handleChange}
                 placeholder='your@email.com'
@@ -87,12 +91,13 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2" >Message</label>
+              <label htmlFor='message' className="block text-sm font-medium mb-2" >Message</label>
               <textarea 
                 name="message" 
                 value={formData.message} 
                 onChange={handleChange} 
                 id="message"
+                autoComplete='off'
                 rows={4}
                 placeholder='Hi!, I would like to say...'
                 className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
@@ -112,12 +117,14 @@ const Contact = () => {
 
             {/* Name Field */}
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">Name</label>
+              <label htmlFor='name' className="block text-sm font-semibold text-gray-800 mb-2">Name</label>
               <input
                 type="text"
                 name="username" 
+                id='name'
                 value={formData.username} 
                 onChange={handleChange} 
+                autoComplete='name'
                 placeholder="John"
                 className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
               />
@@ -125,24 +132,27 @@ const Contact = () => {
 
             {/* Email Field */}
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">Email</label>
+              <label htmlFor='email' className="block text-sm font-semibold text-gray-800 mb-2">Email</label>
               <input
                 type="email"
                 name="email" 
+                id='email'
                 value={formData.email} 
                 onChange={handleChange} 
+                autoComplete='email'
                 placeholder="your@email.com"
                 className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
               />
             </div>
             {/* Message Field */}
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">Message</label>
+              <label htmlFor='message' className="block text-sm font-semibold text-gray-800 mb-2">Message</label>
               <textarea
                 name="message" 
                 value={formData.message} 
                 onChange={handleChange} 
                 id="message"
+                autoComplete='off'
                 rows={4}
                 placeholder="Hi! I would like to say..."
                 className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
