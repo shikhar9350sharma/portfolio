@@ -11,13 +11,19 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
     if (!formData.username || !formData.email || !formData.message) {
       toast.error("Please fill out all fields.");
       return;
     }
+    e.preventDefault();
+    const res = await fetch('http://localhost:3000/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    const data = await res.json();
     toast.success("Message Sent!");
-    // Optionally clear form
     setFormData({ username: '', email: '', message: '' });
   };
 
@@ -55,96 +61,102 @@ const Contact = () => {
         {/* for black theme  */}
         {themeChanger === 'dark' 
         ?
-        <div className=' gap-4 flex flex-col text-left px-6 py-8 w-72  md:w-96 rounded-xl bg-white/10 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300 '>
-          <div>
-            <label className="block text-sm font-medium mb-2" >Name</label>
-            <input 
-              type="text" 
-              name="username" 
-              value={formData.username} 
-              onChange={handleChange}
-              placeholder='John'
-              className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2" >Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange}
-              placeholder='your@email.com'
-              className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2" >Message</label>
-            <textarea 
-              name="message" 
-              value={formData.message} 
-              onChange={handleChange} 
-              id="message"
-              rows={4}
-              placeholder='Hi!, I would like to say...'
-              className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
-            ></textarea>
-          </div>
-          <button
-            onClick={handleSubmit }
-            className="w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition duration-300"
-          >
-            Send Message
-          </button>
-        </div> 
+        <form onSubmit={handleSubmit}>
+
+          <div className=' gap-4 flex flex-col text-left px-6 py-8 w-72  md:w-96 rounded-xl bg-white/10 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300 '>
+            <div>
+              <label className="block text-sm font-medium mb-2" >Name</label>
+              <input 
+                type="text" 
+                name="username" 
+                value={formData.username} 
+                onChange={handleChange}
+                placeholder='John'
+                className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2" >Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                value={formData.email} 
+                onChange={handleChange}
+                placeholder='your@email.com'
+                className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2" >Message</label>
+              <textarea 
+                name="message" 
+                value={formData.message} 
+                onChange={handleChange} 
+                id="message"
+                rows={4}
+                placeholder='Hi!, I would like to say...'
+                className='px-2 py-1 rounded-lg bg-white/10 w-full focus:outline-none focus:ring-2 focus:ring-white'
+              ></textarea>
+            </div>
+            <button
+              type='submit'
+              className="w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition duration-300"
+            >
+              Send Message
+            </button>
+          </div> 
+        </form>
         :
-        <div className="gap-4 flex flex-col  text-left px-6 py-8 w-72 md:w-96 rounded-xl bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300">
+        <form onSubmit={handleSubmit} >
+          <div className="gap-4 flex flex-col  text-left px-6 py-8 w-72 md:w-96 rounded-xl bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-xl hover:shadow-pink-500 transition-all duration-300">
 
-          {/* Name Field */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">Name</label>
-            <input
-              type="text"
-              name="username" 
-              value={formData.username} 
-              onChange={handleChange} 
-              placeholder="John"
-              className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
-          </div>
+            {/* Name Field */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-800 mb-2">Name</label>
+              <input
+                type="text"
+                name="username" 
+                value={formData.username} 
+                onChange={handleChange} 
+                placeholder="John"
+                className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              />
+            </div>
 
-          {/* Email Field */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">Email</label>
-            <input
-              type="email"
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
-              placeholder="your@email.com"
-              className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-800 mb-2">Email</label>
+              <input
+                type="email"
+                name="email" 
+                value={formData.email} 
+                onChange={handleChange} 
+                placeholder="your@email.com"
+                className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              />
+            </div>
+            {/* Message Field */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-800 mb-2">Message</label>
+              <textarea
+                name="message" 
+                value={formData.message} 
+                onChange={handleChange} 
+                id="message"
+                rows={4}
+                placeholder="Hi! I would like to say..."
+                className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              ></textarea>
+            </div>
+            <button
+              type='submit'
+              className="w-full py-2 bg-pink-500 hover:bg-pink-600 rounded-lg text-white font-semibold transition duration-300"
+            >
+              Send Message
+            </button>
           </div>
-          {/* Message Field */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">Message</label>
-            <textarea
-              name="message" 
-              value={formData.message} 
-              onChange={handleChange} 
-              id="message"
-              rows={4}
-              placeholder="Hi! I would like to say..."
-              className="px-3 py-2 rounded-lg bg-gray-100 text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
-            ></textarea>
-          </div>
-          <button
-            onClick={handleSubmit}
-            className="w-full py-2 bg-pink-500 hover:bg-pink-600 rounded-lg text-white font-semibold transition duration-300"
-          >
-            Send Message
-          </button>
-        </div>
+        </form>
+
         }
       </section>
     </div>
