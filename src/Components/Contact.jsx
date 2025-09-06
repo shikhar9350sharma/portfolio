@@ -12,11 +12,12 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!formData.username || !formData.email || !formData.message) {
       toast.error("Please fill out all fields.");
       return;
     }
-    e.preventDefault();
+
     const res = await fetch('https://portfolio-backend-psi-nine.vercel.app/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
