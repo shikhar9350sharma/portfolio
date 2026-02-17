@@ -37,7 +37,7 @@ const Project = () => {
       "heading": 'ProtonMail',
       "desc": 'A Email service provider web application clone with the responsive components (only frontend based)',
       "githubUrl": 'https://github.com/shikhar9350sharma/Proton-Mail-Frontend'
-    }
+    },
   ]
   const liveProjects = [
   
@@ -52,7 +52,19 @@ const Project = () => {
       "heading": 'ProtonMail',
       "desc": 'A Email service provider web application clone with the responsive components (only frontend based)',
       "liveUrl": 'https://proton-mail-frontend.appwrite.network'
-    }
+    },
+    {
+      "img": 'house.png',
+      "heading": 'Perumnas',
+      "desc": 'A modern, responsive website showcasing Perumnas cluster housing with elegant design, strategic location highlights, and lifestyle facilities for comfortable living.',
+      "liveUrl": 'https://digital-omega-green.vercel.app/'
+    },
+    {
+      "img": 'ecom.png',
+      "heading": 'E-comm',
+      "desc": 'A responsive e‑commerce website showcasing sneakers and accessories with product listings, filters, shopping cart, and modern UI for a smooth shopping experience',
+      "liveUrl": 'https://e-comm-rosy-eight.vercel.app/'
+    },
   ]
   return (
     <div>
@@ -62,7 +74,7 @@ const Project = () => {
           <span className='font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent'>
             &ldquo;
           </span>
-          I have created some projects by my skills and knowledge most of those web pages based on toolkit and a software system built in python. Now, i'm learning python's frameworks and libraries Flask, Django for making more interactive applications.
+          I have created some projects by my skills and knowledge most of those web pages based on toolkit and a software system built in python.
           <span className='font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent'>
             &rdquo;
           </span>
@@ -88,7 +100,7 @@ const Project = () => {
           ))}
         </div>
         <h3 className='mt-8 md:mt-24 mb-4  text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent capitalize'>Live projects</h3>
-         <div className='text-3xl px-6 py-5 mt-6 italic flex flex-col md:flex-row items-center justify-center gap-6'>
+         <div className='text-3xl px-6 py-5 mt-6 italic grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {liveProjects.map((livePro, index)=>(
             <div key={index} className='relative flex flex-col items-center justify-evenly max-w-sm h-96 rounded-lg shadow-lg shadow-pink-400 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 group '>
               <div className='w-auto h-36 m-2 rounded-lg overflow-hidden'>

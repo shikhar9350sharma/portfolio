@@ -25,7 +25,6 @@ const Home = () => {
               repeat={Infinity}
             />
           </div>
-
           <p className='text-gray-500 font-semibold text-xl mb-6'>I’m a passionate full-stack developer who blends technical precision with creative design.<br /> I love building responsive web apps that feel intuitive and engaging.</p>
           <div className='flex items-center justify-start gap-2 mb-6'>
             <div className='rounded-full border p-[4px] border-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:via-pink-500 hover:to-red-500 hover:scale-105 transition-all duration-200'>
@@ -38,7 +37,6 @@ const Home = () => {
                 <img className='w-14 h-14' loading='lazy' src="github.png" alt="GitHub" />
               </a>
             </div>
-            
           </div>
           <div className='flex items-center gap-6'>
             <a href="mailto:shikharsharma593@gmail.com" aria-label="Mail to me" target="_blank" rel="noopener noreferrer">
