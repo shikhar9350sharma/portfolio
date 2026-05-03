@@ -48,6 +48,12 @@ const Project = () => {
       "liveUrl": 'https://jpmusic.appwrite.network/'
     },
     {
+      "img": 'wallpaper.png',
+      "heading": 'WallpaperHub',
+      "desc": 'A Next.js based fully responsive web application with a modern themes and layout for showcasing wallpapers.',
+      "liveUrl": 'https://wallpaper-lilac.vercel.app/'
+    },
+    {
       "img": 'protonmail.png',
       "heading": 'ProtonMail',
       "desc": 'A Email service provider web application clone with the responsive components (only frontend based)',
