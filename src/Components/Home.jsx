@@ -7,7 +7,6 @@ const Home = () => {
       <section id='home' className='h-full md:h-screen flex flex-col md:flex-row items-center gap-14 mx-4 md:mx-20'>
         <div className='my-4 md:my-0 flex flex-col items-center justify-center p-2 text-center md:text-start md:flex-none md:items-start md:justify-start'>
           <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-1'>Hello I'm</h1>
-          {/* <h1 className='text-5xl font-bold mb-3'>Shikhar</h1> */}
           <div className="text-[2em] md:text-[3em] font-bold">
             <TypeAnimation
               sequence={[
@@ -53,7 +52,6 @@ const Home = () => {
         </div>
         <div className='bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-60 h-60 p-2 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50'>
           <div className='rounded-full border border-gray-400 w-56 h-56 bg-gray-300 overflow-hidden'>
-            {/* <img   src="myImage1.png" alt="myImg" /> */}
             <img loading='lazy' src="myImage.png" alt="Portrait of Shikhar Sharma" />
 
           </div>
